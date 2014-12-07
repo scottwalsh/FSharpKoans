@@ -27,19 +27,19 @@ module ``about pipelining`` =
         let evens = List.filter isEven numbers
         let result = List.map square evens
 
-        AssertEquality result __
+        AssertEquality result [0; 4; 16]
 
     [<Koan>]
     let SquareEvenNumbersWithParens() =
         (* You can avoid this problem by using parens to pass the result of one
-           function to another. This can be difficult to read since you have to 
+           funciton to another. This can be difficult to read since you have to 
            start from the innermost function and work your way out. *)
 
         let numbers = [0..5]
 
         let result = List.map square (List.filter isEven numbers)
 
-        AssertEquality result __
+        AssertEquality result [0; 4; 16]
 
     [<Koan>]
     let SquareEvenNumbersWithPipelineOperator() =
@@ -51,7 +51,7 @@ module ``about pipelining`` =
             |> List.filter isEven
             |> List.map square
         
-        AssertEquality result __
+        AssertEquality result [0; 4; 16]
 
     [<Koan>]
     let HowThePipeOperatorIsDefined() =
@@ -63,4 +63,4 @@ module ``about pipelining`` =
             |> List.filter isEven
             |> List.map square
 
-        AssertEquality result __
+        AssertEquality result [0; 4; 16]
